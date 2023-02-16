@@ -495,12 +495,12 @@ if(c === 21){
 // If number is 100 then print 100
 // Else print 10000
 
-        let num = 99;
-        switch (num % 2 === 0) {
-            case true:
+        let num = 99 % 2;
+        switch (num) {
+            case 0:
                 console.log("Even");
                 break;
-            case false:
+            case 1:
                 console.log("Odd");
                 break;
             case 100:
@@ -562,7 +562,7 @@ if(c === 21){
 
         let num3 = 20;
         let num4 = -10;
-        if (num3 < 0 && num4 >= 0 || num4 < 0 && num3 >= 0) {
+        if (num3 < 0 && num4 > 0 || num4 < 0 && num3 > 0) {
             console.log(Math.abs(num3 + num4));
         } else {
             console.log(Math.abs(num3 * num4));
@@ -586,13 +586,10 @@ if(c === 21){
 // If number is palindrome then print yes else print no.
 
         let num9 = 12221;
-        let number = num9;
         let rev = 0;
         while(num9 > 0){
          rev = (rev*10)+(num9%10);
-         console.log(rev)
          num9 = parseInt(num9/10)
-         console.log(num9)
         }
         rev === number ? console.log("Yes") : console.log("No")
 
@@ -601,7 +598,9 @@ if(c === 21){
 
         let strr = "Hello"
         if(strr.length > 10){
-            console.log(strr)
+            for(let i=1; i<=strr.length; i++){
+               console.log(i)
+            }
         }else{
             console.log("No")
         }
