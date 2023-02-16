@@ -562,7 +562,7 @@ if(c === 21){
 
         let num3 = 20;
         let num4 = -10;
-        if (num3 < 0 && num4 > 0 || num4 < 0 && num3 > 0) {
+        if (num3 < 0 && num4 >= 0 || num4 < 0 && num3 >= 0) {
             console.log(Math.abs(num3 + num4));
         } else {
             console.log(Math.abs(num3 * num4));
@@ -586,13 +586,15 @@ if(c === 21){
 // If number is palindrome then print yes else print no.
 
         let num9 = 12221;
-        let str = num9.toString();
-        let str1 = "";
-        for (let i = 1; i <= str.length; i++) {
-            str1 += str.at(-i)
+        let number = num9;
+        let rev = 0;
+        while(num9 > 0){
+         rev = (rev*10)+(num9%10);
+         console.log(rev)
+         num9 = parseInt(num9/10)
+         console.log(num9)
         }
-        +str === +str1 ? console.log("Yes") : console.log("No")
-
+        rev === number ? console.log("Yes") : console.log("No")
 
 // Q38. Take a String and check its length. If string length is greater 
 // than 10 then print from 1 to length of the string. else print No.
