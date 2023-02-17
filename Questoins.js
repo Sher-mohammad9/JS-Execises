@@ -425,35 +425,46 @@ if(c === 21){
 // Use can enter any number of quantities. Calculate the bill based on the quantities entered and item prices. 
 // If user enteres 0 or negative value then consider item count as 0.
 
-        let howMuchItem = 0;
-        let userOrder = false;
-        while (!userOrder) {
+        
+        const frenchFries = 60;
+        const burgers = 50;
+        const chowmin = 100;
+        const manchurian = 80;
+        const coke = 50;
+        let bill = 0
+        let shopOpen = true;
+        while (shopOpen) {
             userOrder = +prompt(`How to order
              1.How many french fries (60rs per piece) do you want to order ?
              2.How many burgers (50rs per piece) do you want to order ?
              3.How many plates of chowmin (100rs per plate) do you want to order?
              4.How many plates of Manchurian (80rs per plate) do you want to order?
-             5.How many Cokes (50 per piece) do you want to order ?
-             6.Exit`)
+             5.How many Cokes (50 per piece) do you want to order ?`)
             if (userOrder <= 5 && userOrder) {
-                howMuchItem = +prompt("How many do you want to order")
+                howMuch = +prompt("How many do you want to order")
             }
-        }
-        console.log(howMuchItem)
-        if (userOrder === 1) {
-            console.log(`Your bill ${60 * howMuchItem}`)
-        } else if (userOrder === 2) {
-            console.log(`Your bill ${50 * howMuchItem}`);
-        } else if (userOrder === 3) {
-            console.log(`Your bill ${100 * howMuchItem}`);
-        } else if (userOrder === 4) {
-            console.log(`Your bill ${80 * howMuchItem}`);
-        } else if (userOrder === 5) {
-            console.log(`Your bill ${50 * howMuchItem}`);
-        } else {
-            console.log(0)
-        }
 
+            switch(userOrder){
+            case 1:
+               bill += frenchFries * howMuch;
+               break;
+            case 2:
+                bill += burgers * howMuch;    
+               break;
+            case 3:
+                bill += chowmin * howMuch;
+               break;
+            case 4:
+               bill += manchurian * howMuch;
+               break;
+            case 5:
+               bill += coke * howMuch;
+               break;   
+            default:
+               console.log(`total price = ${bill}`)
+               shopOpen = false;      
+        }
+        }
 
 // Q30.
 // Print below Pattern
@@ -606,8 +617,97 @@ if(c === 21){
         }
 
 
+//39. Funtions in javaScript;
+
+function as_a_Value1(fn1, fn2, a, b) {
+    fn1();
+    fn2(a,b);
+    return function(){
+        console.log("Hello");
+    }
+}
+let ans = as_a_Value1(()=> console.log("Hello"), (x,y)=> console.log(x+y), 10,20)
+ans();
 
 
+function as_a_Value2(fn1, fn2, a, b, c) {
+    fn1(a, b, c);
+    fn2(a,b);
+    return function(x, y, z){
+        console.log(x+y+z);
+    }
+}
+let nas1 = as_a_Value2((x,y,z)=> console.log(x+y+z),(x,y)=> console.log(x+y), 10,20,30)
+nas1(10,20,30);
+
+
+
+function as_a_Value3(fn1, fn2, a, b) {
+    fn1(a, b, fn2);
+    return function(x, y, z){
+        console.log(x*y*z);
+    }
+}
+let nas2 = as_a_Value3((x,y,z)=> {console.log(x+y) ; z()},()=> console.log("Hello"),10,20)
+nas2(10,10,10)
+
+
+const  as_a_Value4 = (fn1, fn2, fn3, a) => {
+    fn1(a, fn3, fn2);
+    return function(x, y, z){
+        return x+y+z;
+    }
+}
+let an3 = as_a_Value4((x, y, z)=> {console.log(x); y(); z()}, ()=> console.log("Hello"), ()=>console.log("World"), 10);
+console.log(an3(10,20,30));
+
+
+function as_a_Value5(fn1, fn2, fn3, fn4, a) {
+    fn1(a, fn3,fn2);
+    fn2(fn3, fn4);
+    fn3();
+    fn4();
+    return fn4();
+}
+ 
+as_a_Value5(
+(x, y, z) => { 
+      console.log(x); 
+      y();
+      z()
+}, 
+(x, y) => {
+      if(x && y){
+       x(); y()
+   }
+}, 
+() => console.log("Hello"), 
+() => console.log("Bangad Billa"), 10);
+
+//Q40. Check number 153 is Armstronge or not.
+
+let num1 = 153;
+let num2 = num1;
+let num3 = 0;
+let revrseNum = 0;
+while(num1 > 0){
+  revrseNum = (num1 % 10);
+  num3 += revrseNum ** 3;
+  num1 = parseInt(num1/10);
+}
+n2 === n3 ? console.log(`Number ${num2} is Amrstronge`) : console.log(`Number ${num2} is not Amrstronge`)
+
+//Q41. Print fibonacci series 1,2,3,5,8,13,21.....
+
+let a = 1;
+let b = 1;
+let c = 1;
+for(let i=1; i<=10; i++){
+   console.log(c)
+   a = b;
+   b = c;
+   c = a + b;
+}
 
 
 
