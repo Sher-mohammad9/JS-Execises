@@ -671,18 +671,17 @@ function as_a_Value5(fn1, fn2, fn3, fn4, a) {
 }
  
 as_a_Value5(
-(x, y, z) => { 
-      console.log(x); 
-      y();
-      z()
+(a, fn3, fn2) => {
+      console.log(a)  
+      fn3();
+      fn2(()=>console.log("hiii"), ()=>console.log("okk"));
 }, 
-(x, y) => {
-      if(x && y){
-       x(); y()
-   }
+(fn3,fn4) => {
+      fn3();
+      fn4()
 }, 
 () => console.log("Hello"), 
-() => console.log("Bangad Billa"), 10);
+() => console.log("World"), 10);
 
 //Q40. Check number 153 is Armstronge or not.
 
@@ -710,8 +709,199 @@ for(let i=1; i<=10; i++){
 }
 
 
+//Q 42. How meny times do you want to print tahir's girlfriend name? 
+
+let ask = prompt("What do you print?");
+let howMeny = +prompt("How meny times do you want to print it?")
+let frequency = +prompt("What is the frequency");
+let Interval = setInterval(() => {
+   console.log(ask);
+},frequency * 1000);
+
+setTimeout(() => {
+     clearInterval(Interval);
+},howMeny * frequency * 1000);
+
+//Q 43. First and last charactor capital.
+
+ let str = "My name is hassan khan and i am a software engineer";
+ let str1 = str.split(" ");
+ let str2=  "";
+ for(let val of str1){
+    if(val.length <= 2){
+      let str3 = val.toUpperCase();
+          str2 += str3 + " ";
+    }else{
+      let str4 = val.charAt(0).toUpperCase().concat(val.substring(1, val.length-1)); 
+      let str5 = val.at(-1).toUpperCase();
+          str2 += str4 + str5 + " ";
+    }
+ } 
+ console.log(str2)
 
 
+//Q 44. Find count of number repeated maximum times and also tell the number.
+
+let arr = [11,21,13,25,111,10,10];
+let newArr = [];
+for(let i = 0; i < arr.length; i++){
+   if(newArr[arr[i]]){
+      newArr[arr[i]] = newArr[arr[i]] + 1;
+   }else{
+      newArr[arr[i]] = 1;
+   }
+}
+console.log(newArr[arr[7]]);
+
+
+ // Q 45. Create an array with three elements and print out the second element.
+ 
+ const arr = ["Hassan", 20, true];
+ console.log(arr[1]);
+
+ // Q 46. Create an array with five elements and print out the length of the array.
+
+ const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+ console.log(arr.length);
+
+ // Q 47. Create an array with four elements and print out each element using a for loop.
+
+const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+for(let i=0; i<arr.length; i++){
+   console.log(arr[i]);
+};
+
+
+// Q 48. Create an array with six elements and print out each element using a forEach loop.   
+
+const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+arr.forEach((ele) => console.log(ele));
+
+// Q 49. Create an array with three elements and add a fourth element to the end of the array.
+
+const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+arr.push(false);
+   console.log(arr)
+
+// Q 50. Create an array with four elements and remove the second element.
+
+const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+arr.spilce(1,1);
+   console.log(arr);
+
+// Q 51. Create an array with five elements and remove the last element.
+
+const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+arr.pop();
+   console.log(arr);   
+
+
+// Q 52. Create an array with three elements and check if the array includes a specific value.
+
+const arr = ["Hassan", 20, true, {"Id" : 21}, [1]];
+let specificValue = 10;
+   if(arr.includes(specificValue)){
+      console.log("Yes")
+   }else{
+      console.log("No")
+   }
+   console.log(arr);   
+
+// Q 53. Create an array with four elements and sort the array in ascending order.
+
+const arr = [12,42,1,2];
+const newArr = arr.sort(ascOrder);
+function ascOrder(val1, val2){
+   return val1 - val2;
+}   
+console.log(newArr);
+
+// Q 54. Create an array with five elements and sort the array in descending order.
+
+const arr = [12,42,1,2];
+const newArr = arr.sort(ascOrder);
+function ascOrder(val1, val2){
+   return val2 - val1;
+}   
+console.log(newArr);
+   
+// Q 55. Create two arrays, concatenate them and print out the resulting array.
+
+const arr1 = ["Mohammad"];
+const arr2 = ["Hassan"];
+const arrCon = arr1 + arr2;
+console.log(arrCon)   
+
+// Q 56. Create an array with three elements and convert it to a string.
+
+const arr = [12,42,1];
+const arrToStr = arr.toString();
+console.log(arrToStr)
+
+// Q 57. Create an array with four elements and reverse the order of the elements.
+
+const arr = [12,42,1,2];
+const newArr = arr.reverse();
+console.log(newArr);
+
+// Q 58. Create an array with five elements and find the index of a specific value.
+
+const arr = [12,42,1,2];
+const specificValue = 12;
+if(arr.includes(specificValue)){
+   let valueIn = arr.indexOf(specificValue);
+   console.log(valueIn + " " + "index");
+}else{
+   console.log("Not found")
+}
+
+// Q 59. Create an array with six elements and slice the array to create a new array with the first three elements.
+
+const arr = [43,545,23,565,4,43];
+const newArr = arr.slice(0,3);
+console.log(newArr)   
+
+// Q 60. Create an array with six elements and use the map method to double each element.
+
+const arr1 = [1,2,3,4,5,6];
+const arr2 = arr1.map(mapEle);
+function mapEle(ele){
+   return ele * 2;
+}  
+console.log(arr2);
+
+// Q 61. Create an array with four elements and use the while loop to calculate the sum of all elements.
+
+const arr = [1,2,3,4];
+let sum = 0;
+let index = 0;
+while(index < arr.length){
+   sum += arr[index];
+   index++;
+}
+console.log(sum)
+
+// Q 62. Create an array with five elements and use the filter method to return only the even numbers.
+
+const arr1 = [1,2,3,4,5];
+const arr2 = arr1.filter(filterValue);
+function filterValue(val){
+   return val % 2 === 0;
+}
+console.log(arr2);
+
+// Q 63. Create an array with three elements and use the join method to concatenate the elements with a dash (-) separator.
+
+const arr1 = [1,2,3,4,5];
+const joinArr = arr1.join("-");
+console.log(joinArr)
+
+// Q64. Create two arrays with three elements each and use the concat method to combine them into a new array.
+
+const arr1 = [1,2,3];
+const arr2 = [4,5,6];
+const arr3 = arr1.concat(arr2);
+console.log(arr3)
 
 
 
