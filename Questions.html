@@ -4,6 +4,54 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Execises</title>
+
+<style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      form {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      input[type="text"], input[type="tel"], input[type="email"], select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: none;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      input[type="radio"] {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;4
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+      }
+    </style>   
 </head>
 <body>
  <h1 style="text-align: center; color: black; letter-spacing: 5px;">Welcome </h1>
@@ -74,23 +122,226 @@
     	    };</td>
     	<td>const arrow  =  (str) => console.log("Wecode Academy");</td>    
     </tr>
-
  </table>
+
+<div id="form-container">
+   
+</div>
+
 </body>
 <!-- <script src="Questoins.js"></script> -->
 <script type="text/javascript">
+/*
+// Get the container element where the form will be added
+const container = document.querySelector('#form-container');
+
+// Create the form element and set its attributes
+const form = document.createElement('form');
+form.setAttribute('id', 'my-form');
+form.setAttribute('name', 'my-form');
+
+// Create an array of fields
+const fields = [
+  {
+    "id": "1111",
+    "label": "First Name",
+    "name": "nameFirst",
+    "type": "text",
+    "required": 1
+  },
+  {
+    "id": "2222",
+    "label": "Last Name",
+    "name": "nameLast",
+    "type": "text",
+    "required": 1
+  },
+  {
+    "id": "3333",
+    "label": "Your Phone Number",
+    "name": "contactPhone",
+    "type": "tel",
+    "pattern": "[0-9]{10}",
+    "required": 0
+  },
+  {
+    "id": "4444",
+    "label": "Your Email",
+    "name": "contactEmail",
+    "type": "email",
+    "required": 0
+  },
+  {
+    "id": "5555",
+    "legend": "Your preferred contact",
+    "name": "contactPreferred",
+    "type": "radio",
+    "required": 1,
+    "options": [
+      {
+        "id": "5555-1",
+        "label": "Phone",
+        "value": "phone"
+      },
+      {
+        "id": "5555-2",
+        "label": "Email",
+        "value": "email"
+      }
+    ]
+  }
+];
+
+// Loop through the fields array and create each form element
+fields.forEach(field => {
+  const fieldWrapper = document.createElement('div');
+  fieldWrapper.setAttribute('class', 'form-group');
+
+  if (field.type === 'radio') {
+    const legend = document.createElement('legend');
+    legend.textContent = field.legend;
+    fieldWrapper.appendChild(legend);
+
+    field.options.forEach(option => {
+      const input = document.createElement('input');
+      input.setAttribute('type', field.type);
+      input.setAttribute('name', field.name);
+      input.setAttribute('id', option.id);
+      input.setAttribute('value', option.value);
+      input.required = field.required;
+
+      const label = document.createElement('label');
+      label.setAttribute('for', option.id);
+      label.textContent = option.label;
+
+      fieldWrapper.appendChild(input);
+      fieldWrapper.appendChild(label);
+    });
+  } else {
+    const label = document.createElement('label');
+    label.setAttribute('for', field.id);
+    label.setAttribute('id', field.id)
+    label.textContent = field.label;
+
+    const input = document.createElement('input');
+    input.setAttribute('type', field.type);
+    input.setAttribute('name', field.name);
+    input.setAttribute('id', field.id);
+    input.required = field.required;
+
+    if (field.pattern) {
+      input.setAttribute('pattern', field.pattern);
+    }
+
+    fieldWrapper.appendChild(label);
+    fieldWrapper.appendChild(input);
+  }
+
+  form.appendChild(fieldWrapper);
+});
+
+// Create the submit button
+const submitButton = document.createElement('button');
+submitButton.setAttribute('type', 'submit');
+submitButton.textContent = 'Submit';
+
+console.log(form);
+
+submitButton.addEventListener("click", ()=>{
+const divArr = document.getElementsByClassName("form-group");
+for(let i = 0; i < divArr.length; i++){
+const labelValue = divArr[i].firstChild.textContent;
+// console.log(labelValue)
+const inputValue = divArr[i].lastChild.value;
+// console.log(inputValue);
+}
+})
+
+// Add the form and submit button to the container element
+container.appendChild(form);
+container.appendChild(submitButton);
 
 
-let a = 1;
-let b = 1;
-let c = 1;
-for(let i=1; i<=10; i++){
-      console.log(c)
-    a = b;
-    b = i;
-    c = a + b;
+const arr = [11,-2,-3,1,-1,-5,6,11,2,-3,4];
+let arr1 = [];
+for(let i=0; i<arr.length; i++){
+   if(arr[i] < 0){
+      arr1.unshift(arr[i])
+   }else{
+      arr1.push(arr[i])
+   }
+}
+console.log(arr1)
+
+for(let i=0; i<arr.length; i++){
+   // if(arr[i])
 }
 
-</script>
+// debugging 
+ 
+// source = sub files
+// network = api data reveid input
+// prfomance = code prfomance
 
-</html>
+// // fixing error
+// console.error() 
+// console.warn()
+// console.table() //use json
+
+// // how to bag fixid 
+
+// idebtifire error dug check karna, kya hai.
+// finding dug code check
+// fixed bug code ko shi karna.
+// not repeate bug pachu ni aano.
+
+// //syntex error
+// syntex = code shi nhi likha hai.
+// refernce = code ko shi jage pe use nhi karte hai.
+// typeerror = wrong data pe shi code use karna.
+*/
+
+// const arr = [2,4,12,6,2,0];
+// let newArr = arr.filter((ele,index) => ele % 2 === 0 && (ele % arr[index+1] === 0 || arr[index+1] % ele === 0));
+// console.log(newArr)
+
+
+// const obj = {
+//   name: "Wecode",
+//   address: {
+//     //Nested Object - Object inside Object
+//     pincode: 302012,
+//     area: "Jhotwara",
+//     city: "Jaipur",
+//     state: "Rajasthan",
+//   },
+//   mobile: 54656565,
+//   ages: [1, 2, 3, 4, 5],
+//   sum: function (a, b) {
+//     return a + b;
+//   },
+// };
+
+// let arr = Object.entries(obj);
+// arr.forEach((arr)=>console.log(arr[0],arr[1]))
+
+// const arr = [1, 2, 3, 10, 1, 2, 4, 5, 3, 4, 5];
+// const set = new Set(arr); //Array to Set conversion
+// set.add(45).add(56)
+// const arr1 = [...set]
+// console.log(arr1);
+
+function search_word(str, word){
+ let count = 0;
+ let str1 = str.split(",")
+ for(let val of str1){
+   if(val.trim() === word){
+      count++;
+   }
+ }
+ return count;
+}
+console.log(search_word('The quick brown fox', 'fox'));
+console.log(search_word('aa, bb, cc, dd, aa', 'aa'));
+
+ </script>
