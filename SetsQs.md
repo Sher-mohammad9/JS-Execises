@@ -172,7 +172,3 @@ if(otherSet.size >= mySet.size){
 }
 console.log(diffOfSets)
 ~~~
-
-
-
-
